@@ -1,0 +1,83 @@
+<div class="editor-row">
+
+    <div  ng-repeat="target in panel.targets"
+          class="grafana-target"
+          ng-class="{'grafana-target-hidden': target.hide}"
+          ng-controller="AtlasTargetCtrl"
+          ng-init="init()">
+
+        <div class="grafana-target-inner-wrapper">
+            <div class="grafana-target-inner">
+                <ul class="grafana-target-controls">
+                    <li class="dropdown">
+                        <a class="pointer dropdown-toggle"
+                           data-toggle="dropdown"
+                           tabindex="1">
+                            <i class="icon icon-cog"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                            <li role="menuitem"><a tabindex="1" ng-click="duplicate()">Duplicate</a></li>
+                            <li role="menuitem"><a tabindex="1" ng-click="moveMetricQuery($index, $index-1)">Move up </a></li>
+                            <li role="menuitem"><a tabindex="1" ng-click="moveMetricQuery($index, $index+1)">Move down</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="pointer" tabindex="1" ng-click="removeDataQuery(target)">
+                            <i class="icon icon-remove"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="grafana-segment-list">
+                    <li>
+                        <a class="grafana-target-segment" ng-click="target.hide = !target.hide; get_data();" role="menuitem">
+                            <i class="icon-eye-open"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="grafana-segment-list">
+                    <li>
+                        <textarea type="text"
+                               class="grafana-target-text-input span10"
+                               ng-model="target.query"
+                               placeholder="name,ssCpuUser,:eq,:sum"
+                               spellcheck='false'
+                               data-min-length=0 data-items=100
+                               ng-model-options="{ debounce: 1000 }"
+                               ng-change="get_data()"
+                               style="font-family: monospace; display: block;">
+                        </textarea>
+                    </li>
+                </ul>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="grafana-metric-options">
+    <div class="grafana-target">
+        <div class="grafana-target-inner">
+            <ul class="grafana-segment-list">
+                <li class="grafana-target-segment grafana-target-segment-icon">
+                    <i class="icon-info-sign"></i>
+                </li>
+                <li class="grafana-target-segment">
+                    <a href="https://github.com/Netflix/atlas/wiki/Examples" target="_blank"
+                       bs-tooltip="'Click to show Atlas Stack Language examples'" data-placement="bottom">
+                        ASL examples
+                    </a>
+                </li>
+                <li class="grafana-target-segment">
+                    <a href="https://github.com/Netflix/atlas/wiki/Stack-Language-Reference" target="_blank"
+                       bs-tooltip="'Click to show Atlas Stack Language reference'" data-placement="bottom">
+                        ASL reference
+                    </a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</section>

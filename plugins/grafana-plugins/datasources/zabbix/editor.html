@@ -1,0 +1,73 @@
+
+<div class="editor-row">
+    <div  ng-repeat="target in panel.targets"
+         class="grafana-target"
+         ng-class="{'grafana-target-hidden': target.hide}"
+         ng-controller="ZabbixAPITargetCtrl"
+         ng-init="init()">
+
+    <div class="grafana-target-inner">
+        <ul class="grafana-target-controls">
+            <li class="dropdown">
+                <a  class="pointer dropdown-toggle"
+                    data-toggle="dropdown"
+                    tabindex="1">
+                    <i class="icon-cog"></i>
+                </a>
+                <ul class="dropdown-menu pull-right" role="menu">
+                    <li role="menuitem">
+                        <a  tabindex="1"
+                            ng-click="duplicate()">
+                            Duplicate
+                        </a>
+                    </li>
+                    <li role="menuitem">
+                        <a  tabindex="1"
+                            ng-click="moveMetricQuery($index, $index-1)">
+                            Move up
+                        </a>
+                    </li>
+                    <li role="menuitem">
+                        <a  tabindex="1"
+                            ng-click="moveMetricQuery($index, $index+1)">
+                            Move down
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="pointer" tabindex="1" ng-click="removeDataQuery(target)">
+                    <i class="icon-remove"></i>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="grafana-segment-list">
+            <li class="grafana-target-segment" style="min-width: 15px; text-align: center">
+                {{targetLetters[$index]}}
+            </li>
+            <li>
+                <a  class="grafana-target-segment"
+                    ng-click="target.hide = !target.hide; targetBlur();"
+                    role="menuitem">
+                    <i class="icon-eye-open"></i>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="grafana-segment-list" role="menu">
+            <li>
+                <input type="text" class="input-medium grafana-target-text-input" ng-model="target.alias"
+                       spellcheck='false' placeholder="alias" ng-blur="targetBlur()">
+            </li>
+            <li>
+                <input type="text" class="input-medium grafana-target-text-input" ng-model="target.itemid"
+                       spellcheck='false' placeholder="Item id" ng-blur="targetBlur()">
+            </li>
+        </ul>
+
+        <div class="clearfix"></div>
+
+    </div>
+    </div>
+</div>
