@@ -10,7 +10,9 @@ define(['settings'], function(Settings) {
           Zabbix: {
             type: 'ZabbixAPIDatasource',
             url: 'http://zabbix.org/zabbix/api_jsonrpc.php',
-            auth: 'f2c3a81a739087e9e0b55e821610c26b',
+            username: 'guest',
+            password: '',
+            partials: 'plugins/grafana-plugins/datasources/zabbix',
           },
       },
 
@@ -49,7 +51,7 @@ define(['settings'], function(Settings) {
         panels: [],
         // requirejs modules in plugins folder that should be loaded
         // for example custom datasources
-        dependencies: ['grafana-plugins/datasources/zabbix/zabbix', 'grafana-plugins/datasources/zabbix/zabbixTargetCtrl'],
+        dependencies: ['grafana-plugins/datasources/zabbix/zabbixDatasource', 'grafana-plugins/datasources/zabbix/zabbixTargetCtrl'],
       }
 
     });

@@ -60,9 +60,69 @@
                 <input type="text" class="input-medium grafana-target-text-input" ng-model="target.alias"
                        spellcheck='false' placeholder="alias" ng-blur="targetBlur()">
             </li>
+            <!-- Select Host Group -->
             <li>
-                <input type="text" class="input-medium grafana-target-text-input" ng-model="target.itemid"
-                       spellcheck='false' placeholder="Item id" ng-blur="targetBlur()">
+                <select style="width: 10em"
+                        class="input-medium grafana-target-segment-input"
+                        ng-change="selectHostGroup()"
+                        ng-model="target.hostGroup"
+                        bs-tooltip="target.hostGroup.name.length > 25 ? target.hostGroup.name : ''"
+                        ng-options="hostgroup.name for hostgroup in metric.hostGroupList" >
+                    <option value="">All</option>
+                </select>
+                <a bs-tooltip="target.errors.metric"
+                   style="color: rgb(229, 189, 28)"
+                   ng-show="target.errors.metric">
+                    <i class="icon-warning-sign"></i>
+                </a>
+            </li>
+            <!-- Select Host -->
+            <li>
+                <select style="width: 15em"
+                        class="input-medium grafana-target-segment-input"
+                        ng-change="selectHost()"
+                        ng-model="target.host"
+                        bs-tooltip="target.host.name.length > 25 ? target.host.name : ''"
+                        ng-options="host.name for host in metric.hostList" >
+                    <option value="">-- select host --</option>
+                </select>
+                <a bs-tooltip="target.errors.metric"
+                   style="color: rgb(229, 189, 28)"
+                   ng-show="target.errors.metric">
+                    <i class="icon-warning-sign"></i>
+                </a>
+            </li>
+            <!-- Select Application -->
+            <li>
+                <select style="width: 10em"
+                        class="input-medium grafana-target-segment-input"
+                        ng-change="selectApplication()"
+                        ng-model="target.application"
+                        bs-tooltip="target.application.name.length > 15 ? target.application.name : ''"
+                        ng-options="app.name for app in metric.applicationList" >
+                    <option value="">All</option>
+                </select>
+                <a bs-tooltip="target.errors.metric"
+                   style="color: rgb(229, 189, 28)"
+                   ng-show="target.errors.metric">
+                    <i class="icon-warning-sign"></i>
+                </a>
+            </li>
+            <!-- Select Item -->
+            <li>
+                <select style="width: 20em"
+                        class="input-medium grafana-target-segment-input"
+                        ng-change="selectItem()"
+                        ng-model="target.item"
+                        bs-tooltip="target.expandedName.length > 30 ? target.expandedName : ''"
+                        ng-options="item.expandedName for item in metric.itemList" >
+                    <option value="">--select item--</option>
+                </select>
+                <a bs-tooltip="target.errors.metric"
+                   style="color: rgb(229, 189, 28)"
+                   ng-show="target.errors.metric">
+                    <i class="icon-warning-sign"></i>
+                </a>
             </li>
         </ul>
 
