@@ -66,126 +66,42 @@
           "targets": [
             {
               "errors": {},
-              "itemid": "734",
-              "alias": "osm DL speed"
-            },
-            {
-              "errors": {},
-              "itemid": "683",
-              "alias": "osm.lv blog"
+              "host": {
+                "hostid": "10005",
+                "name": "Zabbix.org"
+              },
+              "item": {
+                "itemid": "591",
+                "name": "Zabbix $4 $2 processes, in %",
+                "key_": "zabbix[process,\"http poller\",avg,busy]",
+                "value_type": "0",
+                "delay": "60",
+                "expandedName": "Zabbix busy \"http poller\" processes, in %"
+              },
+              "alias": "Zabbix.org % busy HTTP poller"
             },
             {
               "target": "",
               "errors": {},
-              "alias": "VPS",
-              "itemid": "17"
-            },
-            {
-              "target": "",
-              "errors": {},
-              "alias": "Busy ICMP",
-              "itemid": "593"
+              "host": {
+                "hostid": "10005",
+                "name": "Zabbix.org"
+              },
+              "item": {
+                "itemid": "17",
+                "name": "Values processed by Zabbix server per second",
+                "key_": "zabbix[wcache,values]",
+                "value_type": "0",
+                "delay": "60",
+                "expandedName": "Values processed by Zabbix server per second"
+              },
+              "alias": "Zabbix.org NVPS"
             }
           ],
           "aliasColors": {},
           "seriesOverrides": [
             {
-              "alias": "Busy ICMP",
-              "yaxis": 2
-            },
-            {
-              "alias": "VPS",
-              "yaxis": 2
-            }
-          ],
-          "links": []
-        }
-      ]
-    },
-    {
-      "title": "New row",
-      "height": "250px",
-      "editable": true,
-      "collapse": false,
-      "panels": [
-        {
-          "title": "Internals",
-          "error": false,
-          "span": 12,
-          "editable": true,
-          "type": "graph",
-          "id": 2,
-          "datasource": null,
-          "renderer": "flot",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
-            "short"
-          ],
-          "grid": {
-            "leftMax": null,
-            "rightMax": null,
-            "leftMin": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold2": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "lines": true,
-          "fill": 0,
-          "linewidth": 1,
-          "points": false,
-          "pointradius": 5,
-          "bars": false,
-          "stack": false,
-          "percentage": false,
-          "legend": {
-            "show": true,
-            "values": false,
-            "min": false,
-            "max": false,
-            "current": false,
-            "total": false,
-            "avg": false
-          },
-          "nullPointMode": "connected",
-          "steppedLine": false,
-          "tooltip": {
-            "value_type": "cumulative",
-            "shared": false
-          },
-          "targets": [
-            {
-              "errors": {},
-              "itemid": "1024",
-              "alias": "Value cache hits",
-              "hide": false
-            },
-            {
-              "target": "",
-              "errors": {},
-              "alias": "Busy poller process 4, in %",
-              "itemid": "615"
-            },
-            {
-              "target": "",
-              "errors": {},
-              "alias": "Busy http poller processes, in %",
-              "itemid": "591"
-            },
-            {
-              "target": "",
-              "errors": {},
-              "alias": "Values processed per second",
-              "itemid": "17"
-            }
-          ],
-          "aliasColors": {},
-          "seriesOverrides": [
-            {
-              "alias": "Value cache hits",
+              "alias": "Zabbix.org NVPS",
               "yaxis": 2
             }
           ],
