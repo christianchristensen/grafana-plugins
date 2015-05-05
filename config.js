@@ -51,7 +51,7 @@ define(['settings'], function(Settings) {
         panels: [],
         // requirejs modules in plugins folder that should be loaded
         // for example custom datasources
-        dependencies: ['grafana-plugins/datasources/zabbix/zabbixDatasource', 'grafana-plugins/datasources/zabbix/zabbixTargetCtrl'],
+        dependencies: ['grafana-plugins/datasources/zabbix/datasource', 'grafana-plugins/datasources/zabbix/queryCtrl'],
       }
 
     });
