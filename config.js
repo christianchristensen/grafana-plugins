@@ -12,7 +12,7 @@ define(['settings'], function(Settings) {
             url: 'http://zabbix.org/zabbix/api_jsonrpc.php',
             username: 'guest',
             password: '',
-            partials: 'plugins/grafana-plugins/datasources/zabbix',
+            partials: 'plugins/grafana-plugins/datasources/zabbix/partials',
           },
       },
 
