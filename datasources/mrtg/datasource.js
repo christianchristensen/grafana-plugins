@@ -34,8 +34,9 @@ function (angular, _, dateMath) {
           var lines = response.data.split('\n');
           var start = Math.ceil(dateMath.parse(options.range.from));
           var end = Math.ceil(dateMath.parse(options.range.to));
-          var filename = target.mrtglogfile;
           var colsel = target.mrtgColumnSelect;
+          var filename = target.alias ? target.alias : (target.mrtglogfile + ':' + colsel);
+          var negate = target.negate ? -1 : 1;
           // TODO: alias override
           lines.shift(); // remove couter line
           lines = lines.map(function(row) {
@@ -46,7 +47,7 @@ function (angular, _, dateMath) {
             // 3: maximum incoming transfer rate in bytes per second for the current interval
             // 4: maximum outgoing transfer rate in bytes per second for the current interval
             var utime = tdata[0]*1000;
-            var tvalue = tdata[colsel];
+            var tvalue = tdata[colsel] * negate;
             if (tvalue != undefined && utime > start && utime < end) {
               return [tvalue, utime];
             }
