@@ -12,10 +12,10 @@ function (angular, _, kbn) {
 
     $scope.init = function() {
       $scope.target.errors = validateTarget($scope.target);
-      $scope.mrtgcolumns = ['In', 'Out', 'Max In', 'Max Out'];
+      $scope.mrtgcolumns = [1, 2, 3, 4];
 
       if (!$scope.target.mrtgColumnSelect) {
-        $scope.target.mrtgColumnSelect = 'Out';
+        $scope.target.mrtgColumnSelect = 2;
       }
     };
 
