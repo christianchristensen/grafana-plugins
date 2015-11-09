@@ -1,0 +1,87 @@
+<div class="tight-form">
+	<ul class="tight-form-list pull-right">
+		<li class="tight-form-item small" ng-show="target.datasource">
+			<em>{{target.datasource}}</em>
+		</li>
+		<li class="tight-form-item">
+			<div class="dropdown">
+				<a class="pointer dropdown-toggle" data-toggle="dropdown" tabindex="1">
+					<i class="fa fa-bars"></i>
+				</a>
+				<ul class="dropdown-menu pull-right" role="menu">
+					<li role="menuitem"><a tabindex="1" ng-click="duplicateDataQuery(target)">Duplicate</a></li>
+					<li role="menuitem"><a tabindex="1" ng-click="moveDataQuery($index, $index-1)">Move up</a></li>
+					<li role="menuitem"><a tabindex="1" ng-click="moveDataQuery($index, $index+1)">Move down</a></li>
+				</ul>
+			</div>
+		</li>
+		<li class="tight-form-item last">
+			<a class="pointer" tabindex="1" ng-click="removeDataQuery(target)">
+				<i class="fa fa-remove"></i>
+			</a>
+		</li>
+	</ul>
+
+	<ul class="tight-form-list">
+		<li class="tight-form-item" style="min-width: 15px; text-align: center">
+			{{target.refId}}
+		</li>
+		<li>
+			<a  class="tight-form-item"
+				ng-click="target.hide = !target.hide; get_data();"
+				role="menuitem">
+				<i class="fa fa-eye"></i>
+			</a>
+		</li>
+	</ul>
+
+	<ul class="tight-form-list" role="menu">
+		<li class="tight-form-item" style="width: 86px">
+			MRTG Log file
+		</li>
+		<li>
+			<input type="text" class="input-large tight-form-input" ng-model="target.mrtglogfile"
+			spellcheck='false' placeholder="MRTG .log path" data-min-length=0 data-items=100
+			ng-blur="targetBlur()">
+			</input>
+			<a bs-tooltip="target.errors.metric" style="color: rgb(229, 189, 28)" ng-show="target.errors.metric">
+				<i class="fa fa-warning"></i>
+			</a>
+		</li>
+		<li class="tight-form-item">
+			Alias:
+			<tip>Custom alias name for MRTG metrics logfile name.</tip>
+		</li>
+		<li>
+			<input type="text" class="tight-form-input input-large"
+			ng-model="target.alias"
+			spellcheck='false'
+			placeholder="series alias"
+			data-min-length=0 data-items=100
+			ng-blur="targetBlur()"></input>
+		</li>
+	</ul>
+
+	<div class="clearfix"></div>
+</div>
+
+<div class="tight-form">
+	<ul class="tight-form-list" role="menu">
+		<li class="tight-form-item">
+			Aggregator
+		</li>
+
+		<li>
+			<select ng-model="target.mrtgColumnSelect" class="tight-form-input input-small"
+				ng-options="colsel for colsel in mrtgcolumns"
+				ng-change="targetBlur()">
+			</select>
+		</li>
+
+		<li class="tight-form-item">
+			<editor-checkbox text="Negate" model="target.negate" change="targetBlur()"></editor-checkbox>
+		</li>
+
+	</ul>
+	<div class="clearfix"></div>
+</div>

@@ -1,0 +1,16 @@
+{
+  "pluginType": "datasource",
+  "name": "MRTG",
+
+  "type": "mrtg",
+  "serviceName": "MRTGDatasource",
+
+  "module": "app/plugins/datasource/mrtg/datasource",
+
+  "partials": {
+    "config": "app/plugins/datasource/mrtg/partials/config.html"
+  },
+
+  "metrics": true,
+  "defaultMatchFormat": "pipe"
+}
