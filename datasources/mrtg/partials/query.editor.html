@@ -36,7 +36,7 @@
 	</ul>
 
 	<ul class="tight-form-list" role="menu">
-		<li class="tight-form-item" style="width: 86px">
+		<li class="tight-form-item" style="width: 96px">
 			MRTG Log file
 		</li>
 		<li>
@@ -77,11 +77,17 @@
 				ng-change="targetBlur()">
 			</select>
 		</li>
-
 		<li class="tight-form-item">
-			<editor-checkbox text="Negate" model="target.negate" change="targetBlur()"></editor-checkbox>
+			Multiplier:
 		</li>
-
+		<li>
+			<input type="text" class="tight-form-input input-small"
+			ng-model="target.mult"
+			spellcheck='false'
+			placeholder="1"
+			data-min-length=0 data-items=10
+			ng-blur="targetBlur()"></input>
+		</li>
 	</ul>
 	<div class="clearfix"></div>
 </div>
